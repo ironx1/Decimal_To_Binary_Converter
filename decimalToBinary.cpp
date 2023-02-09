@@ -47,7 +47,10 @@ int main(int argc, char const *argv[])
 
 int *decToBin(int Val)
 {
-    static int Bit[8];
+    int *Bit = new int[8];
+    for (int i = 0; i < 8; ++i) {
+        Bit[i] = 0;
+    }
     int i = 7;
     while (Val > 0)
     {
