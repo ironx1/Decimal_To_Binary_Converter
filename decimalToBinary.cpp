@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-
+#define Size 8
 using namespace std;
 
 int *decToBin(int);
 int decimalToBinary(int);
 
-int main(int argc, char const *argv[])
+int main()
 {
     cout << "#############################" << endl;
     cout << "#Decimal To Binary Converter#" << endl;
@@ -21,24 +21,24 @@ int main(int argc, char const *argv[])
         cin >> choice;
         switch (choice)
         {
-        case 1:
-        error:
-            cout << "Enter the Number You Want to Convert: ";
-            cin >> num;
-            if (num < 0 || num > 255)
-            {
-                cout << "The entered value cannot be less than 0 and greater than 255!" << endl;
-                goto error;
-            }
-            cout << "(" << num << ")"
-                 << "(10)= " << decimalToBinary(num) << "(2)" << endl;
-            break;
-        case 2:
-            _bool = false;
-            break;
-        default:
-            cout << "Incorrect Entry!" << endl;
-            break;
+            case 1:
+            error:
+                cout << "Enter the Number You Want to Convert: ";
+                cin >> num;
+                if (num < 0 || num > 255)
+                {
+                    cout << "The entered value cannot be less than 0 and greater than 255!" << endl;
+                    goto error;
+                }
+                cout << "(" << num << ")"
+                     << "(10)= " << decimalToBinary(num) << "(2)" << endl;
+                break;
+            case 2:
+                _bool = false;
+                break;
+            default:
+                cout << "Incorrect Entry!" << endl;
+                break;
         }
     }
 
@@ -47,8 +47,8 @@ int main(int argc, char const *argv[])
 
 int *decToBin(int Val)
 {
-    int *Bit = new int[8];
-    for (int i = 0; i < 8; ++i) {
+    int *Bit = new int[Size];
+    for (int i = 0; i < Size; ++i) {
         Bit[i] = 0;
     }
     int i = 7;
@@ -65,9 +65,10 @@ int *decToBin(int Val)
 int decimalToBinary(int val)
 {
     int *ptr = decToBin(val);
-    string strVal = "";
-    string strArr[8] = {""};
-    for (int i = 0; i < 8; i++)
+    string strVal;
+    strVal = "";
+    string strArr[Size] = {""};
+    for (int i = 0; i < Size; i++)
     {
         strArr[i] = to_string(ptr[i]);
         strVal.append(strArr[i]);
