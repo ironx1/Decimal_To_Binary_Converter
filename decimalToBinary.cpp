@@ -51,7 +51,7 @@ int *decToBin(int Val)
     for (int i = 0; i < Size; ++i) {
         Bit[i] = 0;
     }
-    int i = 7;
+    int i = Size-1;
     while (Val > 0)
     {
         int Binary = Val % 2;
